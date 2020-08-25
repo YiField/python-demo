@@ -101,7 +101,7 @@ def calc(numbers):
 print(calc([1, 2, 3]))
 # 使用可变参数  调用该函数时，可以传入任意个参数，包括0个参数
 
-# 可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。
+# 可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。[]
 
 
 def calc2(*numbers):
@@ -117,7 +117,7 @@ print(calc2(*[1, 3, 2, 4]))
 
 print('关键字参数------')
 
-# 关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict
+# 关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict {}
 
 
 def person(name, age, **kw):  # kw获得的dict是extra的一份拷贝，对kw的改动不会影响到函数外的extra。
@@ -144,8 +144,12 @@ def person2(name, age, **kw):
 person2('haha', 333, gender="g", job="s")
 
 print('命名关键字参数------------')
-# *后面的参数被视为命名关键字参数。
-
+# 如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接收city和job作为关键字参数。这种方式定义的函数如下：
+# *后面的参数被视为命名关键字参数
 
 def person3(name, age, *, city, job):
     print(name, age, city, job)
+
+print(person3('jacl',24,city='beijing',job='engineer'))
+
+# https://www.liaoxuefeng.com/wiki/1016959663602400/1017261630425888
