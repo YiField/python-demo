@@ -147,9 +147,11 @@ print('命名关键字参数------------')
 # 如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接收city和job作为关键字参数。这种方式定义的函数如下：
 # *后面的参数被视为命名关键字参数
 
+
 def person3(name, age, *, city, job):
     print(name, age, city, job)
 
-print(person3('jacl',24,city='beijing',job='engineer'))
+
+print(person3('jacl', 24, city='beijing', job='engineer'))
 
 # https://www.liaoxuefeng.com/wiki/1016959663602400/1017261630425888
