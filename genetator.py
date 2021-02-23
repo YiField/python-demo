@@ -76,15 +76,38 @@ def pascal(max):
     l = [1]
     while(n < max):
         p = []
-        for i in l:
+        for i in range(0, len(l)):
             if i == 0 or i == len(l)-1:
-                p.append(i)
+                p.append(1)
+                if i == n and n != max-1:
+                    yield p
             else:
-                p.append(i+(i-1))
-        yield p
-        n = n+1
+                p.append(l[i]+l[i-1])
+                yield p
+            l = p
+            n = n+1
     return 'ok'
 
 
-for p in pascal(6):
+for p in pascal(2):
+    print(p)
+
+print('-------')
+
+
+def triangles(max):
+    n = 0
+    L = [1, ]
+    while n < max:
+        print(L)
+        # 第n行去掉收尾1的中间部分的每个元素等于第n-1相邻两元素相加之和
+        L = [L[i-1]+L[i] for i in range(1, len(L))]
+        L.insert(0, 1)  # 头上添1
+        L.append(1)  # 尾巴添1
+        n = n+1
+
+    return 'Done'
+
+
+for p in triangles(10):
     print(p)
